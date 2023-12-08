@@ -9,10 +9,10 @@ const displayTemples = (temples) => {
     temples.forEach(temple => {
         let article = document.createElement('article');
         let h3 = document.createElement('h3');
-        h3.textContent = temple.templeName;
+        h3.textContent = temple.pokemonName;
         let img = document.createElement('img');
         img.setAttribute('src', temple.imageUrl);
-        img.setAttribute('alt', temple.location);
+        img.setAttribute('alt', temple.type);
         article.appendChild(h3);
         article.appendChild(img);
         templesElement.appendChild(article);
@@ -21,7 +21,7 @@ const displayTemples = (temples) => {
 
 /* async getTemples Function using fetch()*/
 const getTemples = async () => {
-    const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
+    const response = await fetch("https://perrshan.github.io/cse121b/pokemon.json");
     //check to see if the fetch was successful
     if (response.ok) {
         const data = await response.json();
