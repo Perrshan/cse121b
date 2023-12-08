@@ -1,0 +1,93 @@
+[
+    {
+        "pokemonName": "Squirtle",
+        "type": "Water",
+        "superEffective": "Fire, Ground, and Rock",
+        "weakness": "Electric, and Grass",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-800-800/7-Squirtle.webp"
+    },
+    {
+        "pokemonName": "Pikachu",
+        "type": "Electric",
+        "superEffective": "Water and Flying",
+        "weakness": "Ground",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/25-Pikachu.webp"
+    },
+    {
+        "pokemonName": "Gyarados",
+        "type": "Water and Flying",
+        "superEffective": "Fire, Ground, Rock, Grass, Fighting, and Bug",
+        "weakness": "Electric, Ice, Rock, and Grass",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/130-Gyarados.webp"
+    },
+    {
+        "pokemonName": "Gardevior",
+        "type": "Psychic and Fairy",
+        "superEffective": "Fighting, Poisen, Dragon, and Dark",
+        "weakness": "Steel, Poisen, Bug, Ghost, and Dark",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/282-Gardevoir.webp"
+    },
+    {
+        "pokemonName": "Snorlax",
+        "type": "Normal",
+        "superEffective": "None",
+        "weakness": "Fighting",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/143-Snorlax.webp"
+    },
+    {
+        "pokemonName": "Diglett",
+        "type": "Ground",
+        "superEffective": "Fire, Electric, Poisen, Rock, and Steel",
+        "weakness": "Water, Grass, and Ice",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/50-Diglett.webp"
+    },
+    {
+        "pokemonName": "Rayquaza",
+        "type": "Dragon, Flying",
+        "superEffective": "Dragon, Grass, Fighting, and Bug",
+        "weakness": "Dragon, Ice, and Fairy, Electric, Ice and Rock",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/384-Rayquaza.webp"
+    },
+    {
+        "pokemonName": "Emboar",
+        "type": "Fire, Fighting",
+        "superEffective": "Grass, Ice, Bug, Steel, Normal, Rock, and Dark",
+        "weakness": "Water, Ground, Rock, Flying, Psychic, and Fairy",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/500-Emboar.webp"
+    },
+    {
+        "pokemonName": "Beedrill",
+        "type": "Bug, Poisen",
+        "superEffective": "Grass, Psychic, Dark, Grass, and Fairy",
+        "weakness": "Fire, Flying, Rock, Ground, and Psychic",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/15-Beedrill.webp"
+    },
+    {
+        "pokemonName": "Dewgong",
+        "type": "Water, Ice",
+        "superEffective": "Fire, Ground, Rock, Grass, Flying, and Dragon",
+        "weakness": "Electric, Grass, Fire, Fighting, Rock, and Steel",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/87-Dewgong.webp"
+    },
+	{
+        "pokemonName": "Gengar",
+        "type": "Ghost, Poisen",
+        "superEffective": "Psychic, Ghost, Grass, and Fairy",
+        "weakness": "Ghost, Dark, Ground, and Psychic",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/94-Gengar.webp"
+    },
+	{
+        "pokemonName": "Aggron",
+        "type": "Rock, Steel",
+        "superEffective": "Fire, Ice, Flying, Bug, Rock, Fairy",
+        "weakness": "Water, Grass, Fighting, Ground, Steel, Fire",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/306-Aggron.webp"
+    },
+	{
+        "pokemonName": "Shiftry",
+        "type": "Grass, Dark",
+        "superEffective": "Water, Ground, Rock, Psychic, and Ghost",
+        "weakness": "Fire, Ice, Poisen, Flying, Bug, Fighting, Fairy",
+        "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/275-Shiftry.webp"
+    }
+]
