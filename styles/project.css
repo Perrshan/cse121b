@@ -204,7 +204,7 @@ footer {
     color: #eee;
 }
 
-#pokemon {
+#pokemon, #superEffective, #weakness {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 3rem;
@@ -212,7 +212,7 @@ footer {
     margin-bottom: 3rem;
 }
 
-#pokemon article {
+#pokemon article, #superEffective article, #weakness article {
     height: 150px;
     margin: .5rem;
     border: 1px solid rgba(0, 0, 0, .1);
@@ -224,13 +224,13 @@ footer {
     justify-content: center;
 }
 
-#pokemon h4 {
+#pokemon h4, #superEffective h4, #weakness h4 {
     color: navy;
     font-size: smaller;
 }
 
 
-#pokemon img {
+#pokemon img, #superEffective img, #weakness img {
     width: 100px;
     height: 100px;
     box-shadow: 0 0 30px #777;

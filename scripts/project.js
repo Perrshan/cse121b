@@ -5,20 +5,61 @@ const yourPokemon = document.querySelector('#pokemon');
 const superEffective = document.querySelector('#superEffective');
 const weakness = document.querySelector('#weakness');
 let pokemonList = [];
-
+let superEffectiveList = [];
+let weaknessList = [];
+let effective = [];
+let weak = [];
 /* async displayTemples Function */
-const displayPokemon = (pokemon) => {
+const displayYourPokemon = (pokemonList) => {
+    pokemonList.forEach(pokemon => {
+        if(pokemon.pokemonName == 'Squirtle'){
+            let article = document.createElement('article');
+            let h3 = document.createElement('h3');
+            let h4 = document.createElement('h4');
+            h3.textContent = pokemon.pokemonName;
+            h4.textContent = pokemon.type;
+            let img = document.createElement('img');
+            img.setAttribute('src', pokemon.imageUrl);
+            img.setAttribute('alt', pokemon.name);
+            article.appendChild(h3);
+            article.appendChild(img);
+            article.appendChild(h4);
+            yourPokemon.appendChild(article);
+        }
+    });
+};
+
+const displaySuperEffectivePokemon = (pokemon) => {
     pokemon.forEach(pokemon => {
         let article = document.createElement('article');
         let h3 = document.createElement('h3');
+        let h4 = document.createElement('h4');
         h3.textContent = pokemon.pokemonName;
+        h4.textContent = pokemon.type;
         let img = document.createElement('img');
         img.setAttribute('src', pokemon.imageUrl);
         img.setAttribute('alt', pokemon.name);
-        console.log(pokemon.type.split(', ')[0]);
         article.appendChild(h3);
         article.appendChild(img);
-        yourPokemon.appendChild(article);
+        article.appendChild(h4);
+        superEffective.appendChild(article);
+    });
+};
+
+const displayWeakPokemon = (pokemon) => {
+    pokemon.forEach(pokemon => {
+        let article = document.createElement('article');
+        let h3 = document.createElement('h3');
+        let h4 = document.createElement('h4');
+        h3.textContent = pokemon.pokemonName;
+        h4.textContent = pokemon.type;
+        let img = document.createElement('img');
+        img.setAttribute('src', pokemon.imageUrl);
+        img.setAttribute('alt', pokemon.name);
+        article.appendChild(h3);
+        article.appendChild(img);
+        article.appendChild(h4);
+        weakness.appendChild(article);
     });
 };
 
@@ -49,8 +90,12 @@ const sortBy = (pokemon) => {
     let filter = document.querySelector('#sortBy');
     getPokemon();
     switch(filter.value){
-        case "utah":
-            displayPokemon(pokemon.filter((pokemon) => pokemon.location.includes('Utah')));
+        case "Squirtle":
+            displayYourPokemon(pokemon, filter.value);
+            superEffectiveList = pokemon.filter((pokemon) => pokemon.type.includes('Fire' || 'Ground' || 'Rock'));
+            displaySuperEffectivePokemon(superEffectiveList);
+            weaknessList = pokemon.filter((pokemon) => pokemon.type.includes('Electric', 'Grass'));
+            displayWeakPokemon(weaknessList);
         break;
         case "notutah":
             displayPokemon(pokemon.filter((pokemon) => pokemon.location.includes('Utah') == false));
@@ -62,12 +107,31 @@ const sortBy = (pokemon) => {
             displayPokemon(pokemon);
         break;
         default:
-            displayPokemon(pokemon);
+            displayYourPokemon(pokemon);
+            pokemon.forEach(pokemon => {
+                if(pokemon.pokemonName == 'Squirtle'){
+                    effective = pokemon.superEffective.split(", ");
+                    weak = pokemon.weakness.split(", ");
+                    console.log(effective);
+                    console.log(weak);
+                }
+            });
+
+            effective.forEach(type => {
+                superEffectiveList = pokemon.filter((pokemon) => pokemon.type.includes(type));
+                displaySuperEffectivePokemon(superEffectiveList);
+            });
+
+            weak.forEach(type => {
+                weaknessList = pokemon.filter((pokemon) => pokemon.type.includes(type));
+                displayWeakPokemon(weaknessList);
+            });
+
         break;
     };
 };
 
 /* Event Listener */
-document.querySelector("#sortBy").addEventListener("change", () => { sortBy(templeList) });
+document.querySelector("#sortBy").addEventListener("change", () => { sortBy(pokemonList) });
 
 getPokemon();
