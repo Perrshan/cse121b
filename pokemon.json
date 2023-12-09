@@ -15,14 +15,14 @@
     },
     {
         "pokemonName": "Gyarados",
-        "type": "Water and Flying",
+        "type": "Water, Flying",
         "superEffective": "Fire, Ground, Rock, Grass, Fighting, and Bug",
         "weakness": "Electric, Ice, Rock, and Grass",
         "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/130-Gyarados.webp"
     },
     {
         "pokemonName": "Gardevior",
-        "type": "Psychic and Fairy",
+        "type": "Psychic, Fairy",
         "superEffective": "Fighting, Poisen, Dragon, and Dark",
         "weakness": "Steel, Poisen, Bug, Ghost, and Dark",
         "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/282-Gardevoir.webp"

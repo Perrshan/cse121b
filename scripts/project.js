@@ -1,33 +1,36 @@
 /* W05: Programming Tasks */
 
 /* Declare and initialize global variables */
-const templesElement = document.querySelector('#temples');
-let templeList = [];
+const yourPokemon = document.querySelector('#pokemon');
+const superEffective = document.querySelector('#superEffective');
+const weakness = document.querySelector('#weakness');
+let pokemonList = [];
 
 /* async displayTemples Function */
-const displayTemples = (temples) => {
-    temples.forEach(temple => {
+const displayPokemon = (pokemon) => {
+    pokemon.forEach(pokemon => {
         let article = document.createElement('article');
         let h3 = document.createElement('h3');
-        h3.textContent = temple.templeName;
+        h3.textContent = pokemon.pokemonName;
         let img = document.createElement('img');
-        img.setAttribute('src', temple.imageUrl);
-        img.setAttribute('alt', temple.location);
+        img.setAttribute('src', pokemon.imageUrl);
+        img.setAttribute('alt', pokemon.name);
+        console.log(pokemon.type.split(', ')[0]);
         article.appendChild(h3);
         article.appendChild(img);
-        templesElement.appendChild(article);
+        yourPokemon.appendChild(article);
     });
 };
 
 /* async getTemples Function using fetch()*/
-const getTemples = async () => {
-    const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
+const getPokemon = async () => {
+    const response = await fetch("https://perrshan.github.io/cse121b/pokemon.json");
     //check to see if the fetch was successful
     if (response.ok) {
         const data = await response.json();
-        templeList = data;
+        pokemonList = data;
         reset();
-        sortBy(templeList);
+        sortBy(pokemonList);
     };
 };
 
@@ -42,24 +45,24 @@ const reset = () => {
 };
 
 /* sortBy Function */
-const sortBy = (temples) => {
+const sortBy = (pokemon) => {
     let filter = document.querySelector('#sortBy');
-    getTemples();
+    getPokemon();
     switch(filter.value){
         case "utah":
-            displayTemples(temples.filter((temple) => temple.location.includes('Utah')));
+            displayPokemon(pokemon.filter((pokemon) => pokemon.location.includes('Utah')));
         break;
         case "notutah":
-            displayTemples(temples.filter((temple) => temple.location.includes('Utah') == false));
+            displayPokemon(pokemon.filter((pokemon) => pokemon.location.includes('Utah') == false));
         break;
         case "older":
-            displayTemples(temples.filter((date) => parseInt(date.dedicated.split(',')[0]) < 1950));
+            displayPokemon(pokemon.filter((date) => parseInt(date.dedicated.split(',')[0]) < 1950));
         break;
         case "all":
-            displayTemples(temples);
+            displayPokemon(pokemon);
         break;
         default:
-            displayTemples(temples);
+            displayPokemon(pokemon);
         break;
     };
 };
@@ -67,4 +70,4 @@ const sortBy = (temples) => {
 /* Event Listener */
 document.querySelector("#sortBy").addEventListener("change", () => { sortBy(templeList) });
 
-getTemples();
+getPokemon();

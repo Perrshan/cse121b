@@ -20,8 +20,8 @@
       <li><a href="w01-task.html">W1 Task</a></li>
       <li><a href="w03-task.html">W3 Task</a></li>
       <li><a href="w04-task.html">W4 Task</a></li>
-      <li><a href="w05-task.html" class="active">W5 Task</a></li>
-      <li><a href="project.html">Project</a></li>
+      <li><a href="w05-task.html">W5 Task</a></li>
+      <li><a href="project.html" class="active">Project</a></li>
     </ul>
   </nav>
   <main id="gridly">
@@ -36,19 +36,26 @@
       <option value="all">No Filter</option>
     </select>
 
-    <div id="temples">
+    <h3>Your Pokemon</h3>
+    <div id="pokemon">
+    </div>
+    <h3>Super Effective Against</h3>
+    <div id="superEffective">
+    </div>
+    <h3>Weak Against</h3>
+    <div id="weakness">
     </div>
   </main>
 
 
   <footer>
-    &copy;<span id="year"></span> | Week 05 - Fetching Temple Data | CSE 121b
+    &copy;<span id="year"></span> | Final Project | CSE 121b
   </footer>
   <script src="scripts/main.js"></script>
   <script>
     document.getElementById("year").innerHTML = new Date().getFullYear();
   </script>
-  <script src="scripts/w05-task.js"></script>
+  <script src="scripts/project.js"></script>
 </body>
 
 </html>

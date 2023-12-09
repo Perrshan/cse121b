@@ -84,41 +84,12 @@ h2 {
 h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    text-align: center;
+    margin-top: 25px;
 }
 
 header {
     margin-top: 70px;
-}
-
-picture {
-    margin: 0 auto;
-}
-
-picture img {
-    width: 240px;
-    height: auto;
-    border-radius: 5%;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 30px #777;
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto 1rem;
-    border: 1px solid rgba(0, 0, 0, .1);
-    padding: 1rem;
-    background-color: #eee;
-}
-
-article {
-    margin-bottom: 1rem;
-}
-
-article div {
-    margin-bottom: .5rem;
-    text-align: right;
 }
 
 label {
@@ -142,19 +113,6 @@ input[type="button"] {
 input[type="checkbox"] {
     width: 25px;
     height: 25px;
-}
-
-dt {
-    font-weight: 700;
-}
-
-dt::before {
-    content: "🏘️ ";
-}
-
-dd {
-    margin: 0 0 .5rem 2rem;
-    font-size: smaller;
 }
 
 footer {
@@ -246,35 +204,35 @@ footer {
     color: #eee;
 }
 
-#temples {
+#pokemon {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: .5rem;
+    grid-gap: 3rem;
     align-items: center;
     margin-bottom: 3rem;
 }
 
-#temples article {
-    height: 250px;
+#pokemon article {
+    height: 150px;
     margin: .5rem;
     border: 1px solid rgba(0, 0, 0, .1);
     padding: 1rem;
-    background-color: #eee;
+    background-color: #9bd2f5;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#temples h4 {
+#pokemon h4 {
     color: navy;
     font-size: smaller;
 }
 
 
-#temples img {
-    width: 250px;
-    height: auto;
+#pokemon img {
+    width: 100px;
+    height: 100px;
     box-shadow: 0 0 30px #777;
     margin: .5rem;
 }
