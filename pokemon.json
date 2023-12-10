@@ -58,7 +58,7 @@
     {
         "pokemonName": "Beedrill",
         "type": "Bug, Poisen",
-        "superEffective": "Grass, Psychic, Dark, Grass, Fairy",
+        "superEffective": "Grass, Psychic, Dark, Fairy",
         "weakness": "Fire, Flying, Rock, Ground, Psychic",
         "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/15-Beedrill.webp"
     },
