@@ -23,7 +23,7 @@ const displayYourPokemon = (pokemonList, yourPokemonChoice) => {
             h4.textContent = pokemon.type;
             let img = document.createElement('img');
             img.setAttribute('src', pokemon.imageUrl);
-            img.setAttribute('alt', pokemon.name);
+            img.setAttribute('alt', pokemon.pokemonName);
             article.appendChild(h3);
             article.appendChild(img);
             article.appendChild(h4);
@@ -42,7 +42,7 @@ const displaySuperEffectivePokemon = (pokemon, yourPokemonChoice) => {
             h4.textContent = pokemon.type;
             let img = document.createElement('img');
             img.setAttribute('src', pokemon.imageUrl);
-            img.setAttribute('alt', pokemon.name);
+            img.setAttribute('alt', pokemon.pokemonName);
             article.appendChild(h3);
             article.appendChild(img);
             article.appendChild(h4);
@@ -61,7 +61,7 @@ const displayWeakPokemon = (pokemon, yourPokemonChoice) => {
             h4.textContent = pokemon.type;
             let img = document.createElement('img');
             img.setAttribute('src', pokemon.imageUrl);
-            img.setAttribute('alt', pokemon.name);
+            img.setAttribute('alt', pokemon.pokemonName);
             article.appendChild(h3);
             article.appendChild(img);
             article.appendChild(h4);
