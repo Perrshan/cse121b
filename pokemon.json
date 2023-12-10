@@ -45,7 +45,7 @@
         "pokemonName": "Rayquaza",
         "type": "Dragon, Flying",
         "superEffective": "Dragon, Grass, Fighting, Bug",
-        "weakness": "Dragon, Ice, Fairy, Electric, Ice, Rock",
+        "weakness": "Dragon, Ice, Fairy, Electric, Rock",
         "imageUrl": "https://static.pokemonpets.com/images/monsters-images-300-300/384-Rayquaza.webp"
     },
     {

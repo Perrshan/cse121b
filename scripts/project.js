@@ -1,18 +1,21 @@
-/* W05: Programming Tasks */
+/* Final Project */
 
 /* Declare and initialize global variables */
 const yourPokemon = document.querySelector('#pokemon');
 const superEffective = document.querySelector('#superEffective');
 const weakness = document.querySelector('#weakness');
+const listOptions = document.querySelector('#sortBy');
 let pokemonList = [];
 let superEffectiveList = [];
 let weaknessList = [];
 let effective = [];
 let weak = [];
-/* async displayTemples Function */
-const displayYourPokemon = (pokemonList) => {
+let number = 0;
+
+/* displayPokemon Functions */
+const displayYourPokemon = (pokemonList, yourPokemonChoice) => {
     pokemonList.forEach(pokemon => {
-        if(pokemon.pokemonName == 'Squirtle'){
+        if(pokemon.pokemonName == yourPokemonChoice){
             let article = document.createElement('article');
             let h3 = document.createElement('h3');
             let h4 = document.createElement('h4');
@@ -29,41 +32,46 @@ const displayYourPokemon = (pokemonList) => {
     });
 };
 
-const displaySuperEffectivePokemon = (pokemon) => {
+const displaySuperEffectivePokemon = (pokemon, yourPokemonChoice) => {
     pokemon.forEach(pokemon => {
-        let article = document.createElement('article');
-        let h3 = document.createElement('h3');
-        let h4 = document.createElement('h4');
-        h3.textContent = pokemon.pokemonName;
-        h4.textContent = pokemon.type;
-        let img = document.createElement('img');
-        img.setAttribute('src', pokemon.imageUrl);
-        img.setAttribute('alt', pokemon.name);
-        article.appendChild(h3);
-        article.appendChild(img);
-        article.appendChild(h4);
-        superEffective.appendChild(article);
+        if(pokemon.pokemonName != yourPokemonChoice){
+            let article = document.createElement('article');
+            let h3 = document.createElement('h3');
+            let h4 = document.createElement('h4');
+            h3.textContent = pokemon.pokemonName;
+            h4.textContent = pokemon.type;
+            let img = document.createElement('img');
+            img.setAttribute('src', pokemon.imageUrl);
+            img.setAttribute('alt', pokemon.name);
+            article.appendChild(h3);
+            article.appendChild(img);
+            article.appendChild(h4);
+            superEffective.appendChild(article);
+        }
     });
 };
 
-const displayWeakPokemon = (pokemon) => {
+const displayWeakPokemon = (pokemon, yourPokemonChoice) => {
     pokemon.forEach(pokemon => {
-        let article = document.createElement('article');
-        let h3 = document.createElement('h3');
-        let h4 = document.createElement('h4');
-        h3.textContent = pokemon.pokemonName;
-        h4.textContent = pokemon.type;
-        let img = document.createElement('img');
-        img.setAttribute('src', pokemon.imageUrl);
-        img.setAttribute('alt', pokemon.name);
-        article.appendChild(h3);
-        article.appendChild(img);
-        article.appendChild(h4);
-        weakness.appendChild(article);
+        if(pokemon.pokemonName != yourPokemonChoice){
+            let article = document.createElement('article');
+            let h3 = document.createElement('h3');
+            let h4 = document.createElement('h4');
+            h3.textContent = pokemon.pokemonName;
+            h4.textContent = pokemon.type;
+            let img = document.createElement('img');
+            img.setAttribute('src', pokemon.imageUrl);
+            img.setAttribute('alt', pokemon.name);
+            article.appendChild(h3);
+            article.appendChild(img);
+            article.appendChild(h4);
+            weakness.appendChild(article);
+        }
     });
 };
 
-/* async getTemples Function using fetch()*/
+
+/* async getPokemon Function using fetch()*/
 const getPokemon = async () => {
     const response = await fetch("https://perrshan.github.io/cse121b/pokemon.json");
     //check to see if the fetch was successful
@@ -87,51 +95,39 @@ const reset = () => {
 
 /* sortBy Function */
 const sortBy = (pokemon) => {
+    number ++;
     let filter = document.querySelector('#sortBy');
-    getPokemon();
-    switch(filter.value){
-        case "Squirtle":
-            displayYourPokemon(pokemon, filter.value);
-            superEffectiveList = pokemon.filter((pokemon) => pokemon.type.includes('Fire' || 'Ground' || 'Rock'));
-            displaySuperEffectivePokemon(superEffectiveList);
-            weaknessList = pokemon.filter((pokemon) => pokemon.type.includes('Electric', 'Grass'));
-            displayWeakPokemon(weaknessList);
-        break;
-        case "notutah":
-            displayPokemon(pokemon.filter((pokemon) => pokemon.location.includes('Utah') == false));
-        break;
-        case "older":
-            displayPokemon(pokemon.filter((date) => parseInt(date.dedicated.split(',')[0]) < 1950));
-        break;
-        case "all":
-            displayPokemon(pokemon);
-        break;
-        default:
-            displayYourPokemon(pokemon);
-            pokemon.forEach(pokemon => {
-                if(pokemon.pokemonName == 'Squirtle'){
-                    effective = pokemon.superEffective.split(", ");
-                    weak = pokemon.weakness.split(", ");
-                    console.log(effective);
-                    console.log(weak);
-                }
-            });
 
-            effective.forEach(type => {
-                superEffectiveList = pokemon.filter((pokemon) => pokemon.type.includes(type));
-                displaySuperEffectivePokemon(superEffectiveList);
-            });
+    if(number == 1){
+        pokemonList.forEach(pokemon => {
+            listOptions.innerHTML += `<option value="${pokemon.pokemonName}">${pokemon.pokemonName}</option>`;
+        });
+    }  
 
-            weak.forEach(type => {
-                weaknessList = pokemon.filter((pokemon) => pokemon.type.includes(type));
-                displayWeakPokemon(weaknessList);
-            });
+    displayYourPokemon(pokemon, filter.value);
+    pokemon.forEach(pokemon => {
+        if(pokemon.pokemonName == filter.value){
+            effective = pokemon.superEffective.split(", ");
+            weak = pokemon.weakness.split(", ");
+        }
+    });
 
-        break;
-    };
+    console.log(effective.length);
+
+    effective.forEach(type => {
+        superEffectiveList = pokemon.filter((pokemon) => pokemon.type.includes(type));
+        displaySuperEffectivePokemon(superEffectiveList, filter.value);
+    });
+
+    weak.forEach(type => {
+        weaknessList = pokemon.filter((pokemon) => pokemon.type.includes(type));
+        displayWeakPokemon(weaknessList, filter.value);
+    });
 };
 
-/* Event Listener */
-document.querySelector("#sortBy").addEventListener("change", () => { sortBy(pokemonList) });
-
 getPokemon();
+
+/* Event Listener */
+document.querySelector("#sortBy").addEventListener("change", () => { 
+    getPokemon();
+    sortBy(pokemonList) });
